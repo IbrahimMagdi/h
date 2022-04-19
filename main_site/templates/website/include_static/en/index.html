@@ -1,0 +1,27 @@
+<html lang="en"><head>
+{% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>{% block nameSite %} {{nameSite}} {% block Title_Pages %} {% endblock %} {% endblock %}</title>
+
+    {% include 'website/include_static/en/css_files.html' %}
+
+    {% block else_css_codes %}
+
+    {% endblock %}
+
+  </head>
+<body>
+    {% include 'website/include_static/en/header.html' %}
+    {% block start_body_website %}
+    {% endblock %}
+    {% block start_body %}
+    {% endblock %}
+    {% include 'website/include_static/en/js_files.html' %}
+    {% include 'website/include_static/en/footer.html' %}
+  <!-- Bootstrap core JavaScript -->
+</body></html>

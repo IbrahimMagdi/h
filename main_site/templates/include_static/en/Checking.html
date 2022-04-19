@@ -1,0 +1,123 @@
+{% if request.user.is_authenticated %}
+    <script type="text/javascript">
+      setInterval(function() {
+          var Checking_Network = document.getElementById("Checking_Network");
+          var NetworkWiredTrue = document.getElementById("NetworkWiredTrue");
+          var NetworkWiredFalse = document.getElementById("NetworkWiredFalse");
+          var container = document.getElementById("container");
+            $.ajax({
+                type : 'POST',
+                url :  "{% url 'FullCheckingUser' GETUserData.id %}",
+                success : function(SendData){
+                    toastr.options = {
+                      "closeButton": true,
+                      "debug": true,
+                      "newestOnTop": true,
+                      "progressBar": true,
+                      "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "onclick": null,
+                      "showDuration": "300",
+                      "hideDuration": "1000",
+                      "timeOut": 0,
+                      "extendedTimeOut": 0,
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut",
+                      "tapToDismiss": false
+                    }
+                if (SendData.statusInternet == 3) {
+                    Checking_Network.style.display = "block";
+                    container.style.display = "none";
+                    if (NetworkWiredTrue.style.display === "none") {
+                        NetworkWiredFalse.style.display = "none";
+                        NetworkWiredTrue.style.display = "block";
+                    } else {
+                        NetworkWiredTrue.style.display = "none";
+                        NetworkWiredFalse.style.display = "block";
+                    }
+                    return;
+                }
+                else if (SendData.statusInternet == 1) {
+                  Checking_Network.style.display = "none";
+                  container.style.display = "block";
+                }
+                if (SendData.statusBrowser == 1 && SendData.GoToUrl !== null) {
+                  window.location.href =  SendData.GoToUrl
+                }
+                else if (SendData.statusNotifications == 1) {
+                  document.getElementById("navbarDropdownNotification").className = "nav-link notification-indicator notification-indicator-primary px-0 icon-indicator";
+                  toastr[SendData.StatusNotifications](`
+                      <small style="text-align:right">
+                        <a href="{% url 'ForwardNotificationWeb' %}?idNot=${SendData.IDNotifications}">
+                          <p class="mb-1">${SendData.MessageNotificationsAR}</p>
+                        </a>
+                      </small>
+                  `)
+                }
+                else if (SendData.statusNotifications == 2) {
+                  toastr[SendData.StatusNotifications](`
+                      <small style="text-align:right">
+                        <a>
+                          <p class="mb-1">${SendData.MessageNotificationsAR}</p>
+                        </a>
+                      </small>
+                  `)
+                }
+                },
+                error : function(response){
+                    console.log(response)
+                }
+            });
+        }, 6000);
+    </script>
+    <script type="text/javascript">
+    //     setInterval(function() {
+    //          var i;
+    //          $.ajax({
+    //              type : 'POST',
+    //              url :  "{% url 'UserONLineNow' %}",
+    //              success : function(SendData){
+    //                if (SendData.status == '201') {
+    //                  $("#UserOnLineAR #user").remove();
+    //                  $("#UserOnLineAR").prepend(SendData.AdminONLine);
+    //                };
+    //          },
+    //          error : function(response){
+    //              console.log(response)
+    //          }
+    //        });
+    //    }, 6000);
+    //    function EndNotification() {
+    //        var i;
+    //        $.ajax({
+    //             type : 'POST',
+    //            url :  "{% url 'EndNotification' %}",
+    //            success : function(SendData){
+    //              if (SendData.status == '201') {
+    //                document.getElementById("navbarDropdownNotification").className = "nav-link notification-indicator-primary px-0 icon-indicator";
+    //              };
+   //             },
+   //             error : function(response){
+   //                 console.log(response)
+   //             }
+   //         });
+   //     }
+      // function OnLine() {
+      //    $.ajax({
+      //        type : 'POST',
+      //        url :  "{% url 'OnLine' %}",
+      //        data : {},
+      //        success : function(SendData){
+      //          if (SendData.status == '201') {
+      //              document.getElementById("OnLine").innerHTML = SendData.MS_OnLine ;
+      //          }
+      //          },
+      //            error : function(response){
+      //               console.log(response)
+      //        }
+      //    });
+      //  }
+    </script>
+{% endif %}

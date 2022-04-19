@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="navbar navbar-vertical navbar-expand-xl navbar-light">
+  <div class="d-flex align-items-center">
+    <div class="toggle-icon-wrapper">
+      <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-toggle="tooltip" data-placement="left" title="" data-original-title="Toggle Navigation">
+          <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
+      </button>
+    </div><a class="navbar-brand" href="/">
+      <div class="d-flex align-items-center py-3">
+          <img class="mr-2" src="{% static 'Img_else/logo/logo.png' %}" alt="" width="130">
+      </div>
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <div class="navbar-vertical-content perfect-scrollbar scrollbar">
+
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item {% if '/web/cp/users/all-account' in request.path %}active{% endif %}">
+            <a class="nav-link dropdown-indicator collapsed" href="#Users" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="Users">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-users"></span></span><span class="nav-link-text">التصنيفات</span></div>
+            </a>
+            <ul class="nav collapse {% if '/web/cp/users/all-account' in request.path %}show{% endif %}" id="Users" data-parent="#Users" style="">
+              <li class="nav-item {% if '/web/cp/users/all-account?_type=Company' == request.get_full_path %}show{% endif %}"><a class="nav-link" href="">اضافة جديد</a></li>
+              <li class="nav-item {% if '/web/cp/users/all-account?_type=SocialMedia' == request.get_full_path %}show{% endif %}"><a class="nav-link" href="">كل التصنيفات</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item {% if '/web/cp/users/all-account' in request.path %}active{% endif %}">
+            <a class="nav-link dropdown-indicator collapsed" href="#Users" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="Users">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-users"></span></span><span class="nav-link-text">التصنيفات</span></div>
+            </a>
+            <ul class="nav collapse {% if '/web/cp/users/all-account' in request.path %}show{% endif %}" id="Users" data-parent="#Users" style="">
+              <li class="nav-item {% if '/web/cp/users/all-account?_type=Company' == request.get_full_path %}show{% endif %}"><a class="nav-link" href="">اضافة جديد</a></li>
+              <li class="nav-item {% if '/web/cp/users/all-account?_type=SocialMedia' == request.get_full_path %}show{% endif %}"><a class="nav-link" href="">كل التصنيفات</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav flex-column">
+
+      </ul>
+    </div>
+  </div>
+</nav>

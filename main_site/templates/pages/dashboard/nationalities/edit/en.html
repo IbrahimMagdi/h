@@ -1,0 +1,52 @@
+{% extends "include_static/en/index.html"%}
+{% block Title_Pages %}| تعديل جنسية{% endblock %}
+{% load static %}
+{% block else_css_codes %}
+<link href="{% static 'assets/lib/datatables-bs4/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css' %}" rel="stylesheet">
+<link href="{% static 'assets/lib/fancybox/jquery.fancybox.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block start_body %}
+<div class="card mb-3">
+    <div class="card-body">
+      <div class="row flex-between-center">
+        <div class="col-md">
+          <h5 class="mb-2 mb-md-0">تعديل الجنسية: <span id="item_name">{{item.name_ar}}</span></h5>
+        </div>
+        <div class="col-auto"><a href="{% url 'nationalities_all_web' %}" class="btn btn-falcon-default btn-sm me-2">جميع الجنسيات</a></div>
+      </div>
+    </div>
+</div>
+<div class="card mb-3">
+  <div class="card-body">
+    <form >
+      <div class="row" style="padding-bottom: 32px;">
+        <div class="col-5 mb-md-3">
+          <label class="form-label" for="name_ar">الاسم بالعربي</label>
+          <input class="form-control" onkeyup="check_inputs()" id="name_ar" name="name_ar" value="{{item.name_ar}}" type="text" placeholder="مصرية" />
+        </div>
+        <div class="col-5 mb-md-3">
+          <label class="form-label" for="name_en">الاسم بالانجليزية</label>
+          <input class="form-control" onkeyup="check_inputs()" id="name_en" name="name_en" value="{{item.name_en}}" type="text" placeholder="Egyptian" />
+        </div>
+        <div class="col-2 mb-md-3">
+          <div class="form-check form-switch" style="padding-top: 47px;">
+            <label class="form-check-label" for="status" style="padding-right: 35px;">الحالة</label>
+            <input class="form-check-input" id="status" name="status" type="checkbox" {%if item.status %} checked {% endif %} />
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary" type="button" name="submit" id="submit" onclick="update({{item.id}})">Edit</button>
+      </div>
+      <div style="display:none" id="loading">
+        <button class="btn btn-primary" type="button" disabled="">جاري التحقق <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+{% block else_js_codes %}
+<script src="{% static 'js_code/dashboard/nationalities/edit.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<nav class="navbar navbar-vertical navbar-expand-xl navbar-light">
+  <div class="d-flex align-items-center">
+    <div class="toggle-icon-wrapper">
+
+    </div><a class="navbar-brand" href="/">
+      <div class="d-flex align-items-center py-3">
+          <img class="mr-2" src="{% static 'Img_else/logo/logo.png' %}" alt="" width="90">
+      </div>
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <div class="navbar-vertical-content perfect-scrollbar scrollbar">
+
+      <ul class="navbar-nav flex-column" style="font-size: 21px;">
+        <li class="nav-item {% if '/dashboard/' == request.path %}active{% endif %}">
+            <a class="nav-link {% if '/dashboard/' != request.path %}collapsed{% endif %}" href="{% url 'dashboard_web' %}">
+                <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                        <span class="fa fa-home"></span>
+                    </span><span class="nav-link-text">Home</span>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item {% if '/dashboard/nationalities/' in request.path %}active{% endif %}">
+            <a class="nav-link {% if not '/dashboard/nationalities/' in request.path %}collapsed{% endif %}" href="{% url 'nationalities_all_web' %}">
+                <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                        <span class="far fa-address-card"></span>
+                    </span><span class="nav-link-text">Nationalities</span>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item {% if '/dashboard/systems/' in request.path %}active{% endif %}">
+            <a class="nav-link {% if not '/dashboard/systems/' in request.path %}collapsed{% endif %}" href="{% url 'systems_all_web' %}">
+                <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                        <span class="fa fa-american-sign-language-interpreting"></span>
+                    </span><span class="nav-link-text">Systems</span>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item {% if '/dashboard/teams/' in request.path %}active{% endif %}">
+            <a class="nav-link {% if not '/dashboard/teams/' in request.path %}collapsed{% endif %}" href="{% url 'teams_all_web' %}">
+                <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                        <span class="fa fa-american-sign-language-interpreting"></span>
+                    </span><span class="nav-link-text">Teams</span>
+                </div>
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

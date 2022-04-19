@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US" dir="ltr" class="fontawesome-i2svg-active chrome fontawesome-i2svg-complete">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block nameSite %} {{nameSite}} {% block Title_Pages %} {% endblock %} {% endblock %}</title>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    {% include 'include_static/en/css_files.html' %}
+
+    {% block else_css_codes %}
+
+    {% endblock %}
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+
+    <main class="main" id="top">
+
+      <div class="container-fluid" data-layout="container" id="container">
+        <input type="text" id="token-b" name="token-b" style="display: none;">
+        <span id="send_save_token" style="display: none;">1</span>
+        <input type="text" id="user_id" name="AuthId" value="{{get_user_data.id}}" style="display: none;">
+        {% include 'include_static/en/items_list.html' %}
+        <div class="content">
+            {% include 'include_static/en/navbar.html' %}
+            {% if messages %}
+                <div class="form-row">
+                    {% for msg in messages %}
+                      <div class="form-group col-12">
+                        <div class="{{msg.extra_tags}}" role="alert">
+                            <h6 style="text-align: center;">
+                                {{msg.message}}
+                            </h6>
+                        </div>
+                      </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="px-3 px-xl-0 navbar-vertical-divider">
+              <hr class="border-300 my-2">
+            </div>
+            {% block start_body %}
+                {% include 'include_static/en/cp.html' %}
+            {% endblock %}
+            {% include 'include_static/en/footer.html' %}
+        </div>
+      </div>
+    </main>
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="/static/JS_else_code/jquery-3.2.1.min.js"></script>
+    {% include 'include_static/en/js_files.html' %}
+    {% block else_js_codes %}
+
+    {% endblock %}
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script>
+    <script src="https://shipegypt.com/static/qrcode.min.js"></script>
+    <script src="/static/JS_else_code/checking.js" onload="IntitalizeFireBaseMessaging()"></script>
+   </body>
+</html>

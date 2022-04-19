@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en-US" dir="rtl">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>{{nameSite}} | تسجيل دخول</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="static/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="static/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <script src="static/assets/js/config.navbar-vertical.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="static/assets/lib/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet">
+    <link href="static/assets/css/theme-rtl.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg-white">
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <div class="container-fluid">
+        <div class="row min-vh-100 bg-100">
+          <div class="col-6 d-none d-lg-block">
+            <div class="bg-holder" style="background-image:url(static/assets/img/generic/14.jpg);background-position: 50% 20%;">
+            </div>
+            <!--/.bg-holder-->
+          </div>
+          <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
+            <span id="ref" style="display:none">{{ref}}</span>
+            <div class="row justify-content-center no-gutters">
+              <div class="col-lg-9 col-xl-8 col-xxl-6">
+                <div class="card">
+                  <div class="card-header bg-circle-shape text-center p-2">
+                    <a class="text-white text-sans-serif font-weight-extra-bold fs-4 z-index-1 position-relative" href="/">{{nameSite}}</a>
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <h3>تسجيل دخول</h3>
+
+                    </div>
+                    <br />
+                    <div class="alert alert-info" id="msg-id" style="display:none" role="alert"><span id="msg"></span></div>
+                    <div id="body_data" style="display:none">
+                      <div class="form-group">
+                        <label for="mobile">رقم الموبايل</label>
+                        <input class="form-control" id="mobile" name="mobile" type="number" />
+                      </div>
+                      <div class="form-group">
+                        <div class="d-flex justify-content-between">
+                          <label for="password">كلمة السر</label>
+                        </div>
+                        <input class="form-control" id="password" name="password" type="password" />
+                      </div>
+                      <div class="form-group" id="submit" style="display:none">
+                        <button class="btn btn-primary btn-block mt-3" type="submit" name="submit" onclick="sign_in_fun()">دخول</button>
+                      </div>
+                    </div>
+                    <div class="form-group" id="loading" style="text-align: center;">
+                      <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">جاري التحميل...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/js/popper.min.js"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    <script src="static/assets/lib/@fortawesome/all.min.js"></script>
+    <script src="static/assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="static/assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="static/assets/lib/is_js/is.min.js"></script>
+    <script src="static/assets/lib/lodash/lodash.min.js"></script>
+    <script src="static/assets/lib/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <script src="static/assets/js/theme.js"></script>
+    <script src="/static/JS_else_code/authentication/sing_in.js" onload="load_data()"></script>
+
+  </body>
+
+</html>

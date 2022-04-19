@@ -1,0 +1,19 @@
+{% extends "include_static/en/index.html"%}
+{% block Title_Pages %}| {% endblock %}
+{% load static %}
+{% block else_css_codes %}
+<link href="{% static 'assets/lib/datatables-bs4/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css' %}" rel="stylesheet">
+<link href="{% static 'assets/lib/fancybox/jquery.fancybox.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block start_body %}
+
+{% endblock %}
+{% block else_js_codes %}
+<script src="{% static 'assets/lib/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/lib/datatables-bs4/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'assets/lib/datatables.net-responsive/dataTables.responsive.js' %}"></script>
+<script src="{% static 'assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.js' %}"></script>
+<script src="{% static 'assets/lib/fancybox/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'JS_else_code/cloud/cars/add_new.js' %}"></script>
+{% endblock %}
